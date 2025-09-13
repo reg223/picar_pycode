@@ -22,24 +22,31 @@ def main():
     while True:
         dist = round(px.ultrasonic.read(), 2)
         if dist < SAFE:
-            px.stop()
-            music.sound_play_threading('../sounds/car-double-horn.wav')
-            time.sleep(1)
+            px.forward(0)
+            music.sound_play_threading('car-double-horn.wav')
             px.set_dir_servo_angle(20)
             px.backward(MOVE)
+            time.sleep(0.3)
             px.set_dir_servo_angle(0)
-            px.backward(MOVE)
+            time.sleep(0.3)
             px.set_dir_servo_angle(-20)
-            px.backward(MOVE)
+            time.sleep(0.3)
+            
             px.set_dir_servo_angle(20)
             px.forward(MOVE)
+            time.sleep(0.3)
             px.set_dir_servo_angle(0)
-            px.forward(MOVE)
+            time.sleep(0.3)
             px.set_dir_servo_angle(-20)
-            px.forward(MOVE)
+            time.sleep(0.3)
             px.set_dir_servo_angle(0)
+            px.forward(0)
 
         else:
             px.forward(MOVE)
+            time.sleep(0.1)
 
 
+
+if __name__ == "__main__":
+    main()
