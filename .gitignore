@@ -1,0 +1,8 @@
+*
+!.gitignore
+!README.md
+
+!/P1/
+
+
+!*.py

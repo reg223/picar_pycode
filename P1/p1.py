@@ -1,6 +1,7 @@
-#P1.PY
+# P1.PY
 # Created by Kuangyi "Sam" Hu (samhu2) for CS437 at UIUC
-# Inspired by examples keyboard.py and obstacle_avoidance.py from the official Sunfounder picar-x repo
+# Inspired by examples 3.tts_example.py and 4.avoiding_obstacles.py
+# from the official Sunfounder picar-x repo
 
 from picarx import Picarx
 import time
@@ -19,7 +20,7 @@ def main():
     px.set_dir_servo_angle(0) #straighten the servo
     
     while True:
-        dist = px.get_distance()
+        dist = round(px.ultrasonic.read(), 2)
         if dist < SAFE:
             px.stop()
             music.sound_play_threading('../sounds/car-double-horn.wav')
