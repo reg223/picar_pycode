@@ -6,6 +6,8 @@ px = Picarx()
 # TODO: experiment for turns to find out 90 Deg req
 # TODO: experiment to find out move constant
 
+orientation = 0
+
 def forward(amount = 1):
   px.set_dir_servo_angle(0)
   px.forward(amount*50)
@@ -19,6 +21,7 @@ def backward(amount = 1):
   px.backward(0)
   
 def rTurn(fixpos = True):
+  orientation += 1
   if fixpos:
     px.set_dir_servo_angle(45)
     px.forward(30)

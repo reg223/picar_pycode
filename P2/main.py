@@ -6,7 +6,7 @@ from picarx import Picarx
 
 
 
-px = Picarx()
+# px = Picarx()
 
 
 def main():
