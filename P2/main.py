@@ -1,12 +1,12 @@
 # import map
 import move
-from picarx import Picarx
+
 # import numpy as np
 
 
 
 
-# px = Picarx()
+px = move.px
 
 
 def main():

@@ -1,9 +1,9 @@
 import numpy as np
 import math
-from picarx import Picarx
 import time
+import move
 
-
+px = move.px
 
 def scan():
 
