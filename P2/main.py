@@ -1,6 +1,6 @@
 # import map
 import move
-import Picarx
+from picarx import Picarx
 # import numpy as np
 
 
