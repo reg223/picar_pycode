@@ -11,13 +11,13 @@ orientation = 0
 def forward(amount = 1):
   px.set_dir_servo_angle(0)
   px.forward(amount*50)
-  time.sleep(0.5)
+  time.sleep(0.385)
   px.forward(0)
   
 def backward(amount = 1):
   px.set_dir_servo_angle(0)
   px.backward(amount*50)
-  time.sleep(0.5)
+  time.sleep(0.385)
   px.backward(0)
   
 def rTurn(fixpos = True):

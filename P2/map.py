@@ -34,7 +34,7 @@ def scan():
             grid[grid_y, grid_x] = 1
 
     px.set_cam_pan_angle(0)
-    return grid
+    return pad(grid)
   
 def pad(grid, pad_width=1):
 
