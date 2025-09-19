@@ -1,6 +1,7 @@
 import numpy as np
 import map
 import move
+from collections import deque
 
 
 
@@ -12,6 +13,7 @@ class IE():
     #offset from current map scan, not necessarily origin
     self.offset_x = 0
     self.offset_y = 0
+    self.queue = deque()
     self.grid = map.scan()
     pass
   
@@ -34,6 +36,7 @@ class IE():
     self.offset_x += y
     
     if(abs(self.offset_x)+abs(self.offset_y) >= 50):
+      self.map_reset()
       return
       
   def map_reset(self):
@@ -47,8 +50,13 @@ class IE():
     while(self.orientation != o):
       move.rTurn()
       self.orientation = (self.orientation+1)%4
-      
   
+  #TODO iterate off queue, call map reset when necessary
+  #TODO implement obstacle detection
+  def go(self):
+    return
+    
+  #TODO: update queue with go strings
   def route(self,x = 0,y = 0):
     return
   
