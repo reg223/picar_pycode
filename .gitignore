@@ -4,5 +4,9 @@
 
 !/P1/
 !/P2/
-!/P2/pytorch/*
+!/P2/stop_sign_yolo/
+!/P2/best_saved_model
 !*.py
+!label.txt
+!best.pt
+
