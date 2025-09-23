@@ -5,9 +5,11 @@ import move
 
 px = move.px
 
+MAPSIZE = 100
+
 def scan():
 
-    grid = np.zeros((100, 100), dtype=np.uint8)
+    grid = np.zeros((MAPSIZE, MAPSIZE), dtype=np.uint8)
     origin_x = 50    
     origin_y = 0     
     
