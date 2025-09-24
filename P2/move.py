@@ -25,7 +25,6 @@ def backward(amount = 1):
   px.backward(0)
   
 def rTurn(fixpos = True):
-  orientation += 1
   if fixpos:
     for i in range(4):
       px.set_dir_servo_angle(45)
