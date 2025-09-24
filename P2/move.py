@@ -14,7 +14,9 @@ def forward(amount = 1):
   px.set_dir_servo_angle(0)
   for i in range(amount):
     px.forward(50)
-    time.sleep(0.385)
+    time.sleep(0.192)
+    detection()
+    time.sleep(0.192)
     detection()
   px.forward(0)
   

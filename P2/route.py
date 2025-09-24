@@ -9,7 +9,7 @@ debug = True
 class IE():
   
   def __init__(self):
-    self.location = [0,0]
+    self.location = [5,0]
     self.orientation = 0
     #offset from current map scan, not necessarily origin
     self.offset_x = 0
@@ -71,11 +71,9 @@ class IE():
         self.orientation = int(direction)
       move.forward(amount)
       off_x , off_y = self.orient(0,amount)
-      off_x *= 10
-      off_y *= 10
       self.location[0] += off_x
       self.location[1] += off_y
-      if (sum(self.offset_x,off_x,self.offset_y,off_y)>= 50): break
+      if (sum([self.offset_x,off_x,self.offset_y,off_y])>= 5): break
       self.update(off_x,off_y)
       if (self.location == self.target_loc):
         self.goal()
@@ -90,6 +88,8 @@ class IE():
     self.location = None
 
   def route(self,x = 0,y = 0):
+    print("current map:")
+    map.print_grid(self.grid)
     if debug: print("Setting Route for destination: X = ",x,", y = ",y)
     if (not self.target):
       if debug: print("Setting final destination: X = ",x,", y = ",y)
@@ -103,9 +103,10 @@ class IE():
       y = map.MAPSIZE
     
     route = self.path(x,y)
-    for step in route:
-      self.queue.append(step)
-      
+    if route:
+      for step in route:
+        self.queue.append(step)
+      self.go()  
     return
   
   def path(self,x,y):

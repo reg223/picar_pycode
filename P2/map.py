@@ -5,42 +5,47 @@ import move
 
 px = move.px
 
-MAPSIZE = 100
+MAPSIZE = 10
 
 def scan():
 
     grid = np.zeros((MAPSIZE, MAPSIZE), dtype=np.uint8)
-    origin_x = 50    
+    origin_x = MAPSIZE/2    
     origin_y = 0     
     
-    for angle in range(-45, 45, 5):   
+    for angle in range(-60, 60, 5):   
         px.set_cam_pan_angle(angle)
-        time.sleep(0.05)  # small pause for servo to settle
+        time.sleep(0.1)  # small pause for servo to settle
 
-        dist_cm = round(px.ultrasonic.read(), 2)
+        dist_dm = round(px.ultrasonic.read()/10, 2)
 
-        if dist_cm <= 0 or dist_cm > 100:
+        if dist_dm <= 0 or dist_dm > MAPSIZE:
             continue  
 
 
         rad = math.radians(angle)
-        dx = dist_cm * math.sin(rad)
-        dy = dist_cm * math.cos(rad)
+        dx = dist_dm * math.sin(rad)
+        dy = dist_dm * math.cos(rad)
 
 
         grid_x = int(round(origin_x + dx))
         grid_y = int(round(origin_y + dy))
 
 
-        if 0 <= grid_x < 100 and 0 <= grid_y < 100:
+        if 0 <= grid_x < MAPSIZE and 0 <= grid_y < MAPSIZE:
             grid[grid_y, grid_x] = 1
 
     px.set_cam_pan_angle(0)
-    return pad(grid)
+    return grid
   
-def pad(grid, pad_width=1):
-
-  return np.pad(grid, pad_width, mode="constant", constant_values=0)
+from numpy.lib.stride_tricks import sliding_window_view
+def pad(grid):
+    windows = sliding_window_view(grid, (3,3))
+    out = np.zeros_like(grid)
+    # If any cell in the 3x3 window is 1, center becomes 1
+    mask = (windows.sum(axis=(2,3)) > 0)
+    out[1:-1, 1:-1] = mask
+    return out
 
 def print_grid(grid):
   
