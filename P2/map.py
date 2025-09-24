@@ -5,11 +5,11 @@ import move
 
 px = move.px
 
-MAPSIZE = 20
+MAPSIZE = 10
 
 def scan(x,y):
 
-    grid = np.zeros((MAPSIZE, MAPSIZE*2), dtype=np.uint8)
+    grid = np.zeros((MAPSIZE, MAPSIZE), dtype=np.uint8)
     origin_x = x    
     origin_y = y    
     
@@ -32,7 +32,7 @@ def scan(x,y):
         grid_y = int(round(origin_y + dy))
 
 
-        if 0 <= grid_x < MAPSIZE and 0 <= grid_y < MAPSIZE*2:
+        if 0 <= grid_x < MAPSIZE and 0 <= grid_y < MAPSIZE:
             grid[grid_y, grid_x] = 1
 
     px.set_cam_pan_angle(0)
