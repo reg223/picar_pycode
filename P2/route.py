@@ -117,7 +117,7 @@ class IE():
         '3': (-1, 0)
     }
     def in_bounds(x, y):
-      return 0 <= x < cols and 0 <= y < rows
+      return 0 <= x < map.MAPSIZE and 0 <= y < map.MAPSIZE
     def direction(a, b):
       dx, dy = b[0] - a[0], b[1] - a[1]
       if dx == 1:  return '1'
