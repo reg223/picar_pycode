@@ -14,8 +14,9 @@ px = move.px
 def main():
   # grid = map.scan()
 
-  move.rTurn()
   move.lTurn()
+  
+  move.rTurn()
   
   
 

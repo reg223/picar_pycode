@@ -29,10 +29,10 @@ def rTurn(fixpos = True):
     for i in range(4):
       px.set_dir_servo_angle(45)
       px.forward(30)
-      time.sleep(0.3)
+      time.sleep(0.285)
       px.set_dir_servo_angle(-45)
       px.backward(30)
-      time.sleep(0.3)
+      time.sleep(0.290)
       px.backward(0)
       px.set_dir_servo_angle(0)
   else:
@@ -46,10 +46,10 @@ def lTurn(fixpos = True):
     for i in range(4):
       px.set_dir_servo_angle(-45)
       px.forward(30)
-      time.sleep(0.3)
+      time.sleep(0.27)
       px.set_dir_servo_angle(45)
       px.backward(30)
-      time.sleep(0.3)
+      time.sleep(0.285)
       px.backward(0)
       px.set_dir_servo_angle(0)
   else:
