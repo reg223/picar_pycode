@@ -13,11 +13,11 @@ px = move.px
 
 def main():
   # grid = map.scan()
-
-  move.lTurn()
-  
-  move.rTurn()
-  
+  ie = route.IE()
+  while True:
+    x,y = input("please provide target coordinates").split()
+    
+    ie.route(x,y)
   
 
 if __name__ == "__main__":
