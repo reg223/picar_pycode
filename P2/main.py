@@ -15,9 +15,9 @@ def main():
   # grid = map.scan()
   ie = route.IE()
   while True:
-    x,y = input("please provide target coordinates").split()
+    x,y = input("please provide target coordinates: ").split()
     
-    ie.route(x,y)
+    ie.route(int(x),int(y))
   
 
 if __name__ == "__main__":
