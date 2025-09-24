@@ -64,10 +64,10 @@ class IE():
     while self.queue:
       direction, amount  = self.queue.pop()
       if debug: print("Now executing command d=",direction,", a =",amount)
-      diff = int(direction) - self.orientation
+      diff = (int(direction) - self.orientation)%4
       # 3 - 4
       if diff:
-        move.rTurn() if (diff < 0) else move.lTurn()
+        move.rTurn() if (diff == 1) else move.lTurn()
         self.orientation = int(direction)
       move.forward(amount)
       off_x , off_y = self.orient(0,amount)
