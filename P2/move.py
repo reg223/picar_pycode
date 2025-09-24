@@ -67,5 +67,6 @@ def detection():
   
   if vision.detection():
     px.forward(0)
+    print("stop sign spotted")
     time.sleep(1)
     return

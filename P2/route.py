@@ -9,7 +9,7 @@ debug = True
 class IE():
   
   def __init__(self):
-    self.location = [5,0]
+    self.location = [map.MAPSIZE/2,0]
     self.orientation = 0
     #offset from current map scan, not necessarily origin
     self.offset_x = 0
@@ -67,7 +67,7 @@ class IE():
       diff = (int(direction) - self.orientation)%4
       # 3 - 4
       if diff:
-        move.rTurn() if (diff == 1) else move.lTurn()
+        move.lTurn() if (diff == 1) else move.rTurn()
         self.orientation = int(direction)
       move.forward(amount)
       off_x , off_y = self.orient(0,amount)
@@ -134,7 +134,7 @@ class IE():
       if (x, y) == goal:
           break
       for d, (dx, dy) in dirs.items():
-          nx, ny = x + dx, y + dy
+          nx, ny = int(x + dx), int(y + dy)
           if in_bounds(nx, ny) and self.grid[ny, nx] == 0 and (nx, ny) not in came_from:
               came_from[(nx, ny)] = (x, y)
               q.append((nx, ny))
