@@ -73,7 +73,7 @@ class IE():
       off_x , off_y = self.orient(0,amount)
       self.location[0] += off_x
       self.location[1] += off_y
-      if (sum([self.offset_x,off_x,self.offset_y,off_y])>= 5): break
+      if (sum([self.offset_x,off_x,self.offset_y,off_y])>= 50): break
       self.update(off_x,off_y)
       if (self.location == self.target_loc):
         self.goal()
