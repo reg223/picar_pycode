@@ -14,9 +14,9 @@ px = move.px
 def main():
   # grid = map.scan()
 
-  print(px.ultrasonic.read())
-  move.forward()
-  print(px.ultrasonic.read())
+  move.rTurn()
+  move.lTurn()
+  
   
 
 if __name__ == "__main__":

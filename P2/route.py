@@ -71,6 +71,8 @@ class IE():
         self.orientation = int(direction)
       move.forward(amount)
       off_x , off_y = self.orient(0,amount)
+      off_x *= 10
+      off_y *= 10
       self.location[0] += off_x
       self.location[1] += off_y
       if (sum(self.offset_x,off_x,self.offset_y,off_y)>= 50): break
