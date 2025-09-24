@@ -15,7 +15,7 @@ class IE():
     self.offset_x = 0
     self.offset_y = 0
     self.queue = deque()
-    self.grid = map.scan()
+    self.grid = map.scan(self.location[0],self.location[1])
     self.target = False
     self.target_loc = None
     pass
@@ -53,7 +53,7 @@ class IE():
     while(self.orientation):
       move.rTurn()
       self.orientation = (self.orientation+1)%4
-    self.grid = map.scan()
+    self.grid = map.scan(self.location[0],self.location[1])
     while(self.orientation != o):
       move.rTurn()
       self.orientation = (self.orientation+1)%4
